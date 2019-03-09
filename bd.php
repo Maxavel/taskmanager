@@ -2,7 +2,21 @@
 
 $pdo = new PDO('mysql:host=progect.my;dbname=progbd', 'root', '');
 
-/* $servername = "progect.my";
+/*$host = 'progect.my';
+$db = 'progbd';
+$user = 'root';
+$pass = '';
+$charset = 'utf8';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$opt = [
+	PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+	PDO::ATTR_EMULATE_PREPARES	 => false,
+	]
+
+$pdo = new PDO($dsn, $user, $pass, $opt);
+
+ $servername = "progect.my";
 $username = "root";
 $password = "";
 $dbname = "progbd"
