@@ -1,21 +1,34 @@
 <?php
+session_start();
 include 'bd.php';
 
-$userlogin  = $_POST['userlogin'];
-$password   = md5($_POST['password']);
+   $userlogin = $_POST['userlogin'];
+   $password  = md5(md5($_POST['password']));
 
- foreach ($_POST as $input )
- { if(empty($input)) {
-		include 'errors.php';
-		exit;
-	} }
+   $statement = $pdo->prepare('SELECT id FROM user WHERE userlogin = :userlogin AND password = :password');
+   
+   $statement->execute(array(
+   			userlogin => $userlogin, 
+   			password => $password
+   		));
 
-$statement = $pdo->prepare('SELECT id FROM user WHERE userlogin = :userlogin AND password = :password');
-$statement->bindParam("userlogin", $userlogin,PDO::PARAM_STR);
-$statement->bindParam("password", $password,PDO::PARAM_STR);
-$statement->execute();
-$count=$statement->rowCount();
-$data=$statement->fetch(PDO::FETCH_OBJ);
+   $count = $statement->rowCount();
 
-var_dump($data);
+if($count == 1)
+{
+	$_SESSION['add_user'] = $userlogin;
+	echo 'Вы авторизованы!<br> 
+	Можете перейти на <a href="/">главную</a> страницу.<hr>';
+	
+ }
+ else 
+ {
+	$errorMessage = 'Логин или пароль неверные!';
+	include 'errors.php';
+	exit;
+}
+
+var_dump($_SESSION);
+
+/*    */
 ?> 

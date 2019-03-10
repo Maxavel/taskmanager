@@ -1,4 +1,5 @@
 <?php
+
 include 'bd.php';
 
 $username   = $_POST['username'];
@@ -28,16 +29,14 @@ if(!empty($result))
 
 $sql = 'INSERT INTO user (username, email, userlogin, password) values (:username, :email, :userlogin, :password)';
 $statement = $pdo->prepare($sql);
-$_POST['password'] = md5($_POST['password']);
+$_POST['password'] = md5(md5($_POST['password']));
 $result = $statement->execute($_POST);
 if(!$result)
 {
 	$errorMessage = 'Ошибка подключения';
 } else {
-  $errorMessage = 'Вы успешно зарегистрированы';
-  include 'errors.php';
+  header('Location: login-form.php');
 }
-
 
 /*
 // Валидация POST
