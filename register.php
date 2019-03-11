@@ -1,5 +1,4 @@
 <?php
-
 include 'bd.php';
 
 $username   = $_POST['username'];
