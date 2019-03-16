@@ -17,8 +17,7 @@ include 'bd.php';
 if($count == 1)
 {
 	$_SESSION['add_user'] = $userlogin;
-	echo 'Вы авторизованы!<br> 
-	Можете перейти на <a href="/">главную</a> страницу.<hr>';
+	header('Location: index.php');
 	
  }
  else 
@@ -27,8 +26,5 @@ if($count == 1)
 	include 'errors.php';
 	exit;
 }
-
-var_dump($_SESSION);
-
 /*    */
 ?> 

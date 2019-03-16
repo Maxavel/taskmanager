@@ -33,18 +33,9 @@ $statement->bindParam(':draft', $draft);
 $statement->bindParam(':status', $status);
 
 $statement->execute();
-
-$result = $statement->fetchAll();
-
+$last_id = $pdo->lastInsertId();
 
 
-
-
-
-
-
-
-/*
 // Название <input type="file">
 $input_name = 'file';
 
@@ -155,11 +146,21 @@ if (isset($_FILES[$input_name])) {
         
         // Выводим сообщение о результате загрузки.
         if (!empty($success)) {
-            echo '<p>' . $success . '</p>';        
+            header('Location: index.php');
+            // echo '<p>' . $success . '</p>';        
         } else {
             echo '<p>' . $error . '</p>';
         }
     }
 }
-*/
+
+
+$sql = 'INSERT INTO images (name, last_id) values (:name, :last_id)';
+$statement = $pdo->prepare($sql);
+
+$statement->bindParam(':name', $name);
+$statement->bindParam(':last_id', $last_id);
+
+$statement->execute();
+
 ?>

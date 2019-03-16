@@ -24,7 +24,7 @@
         <label for="inputText" class="sr-only">Описание</label>
         <textarea name="post" class="form-control" cols="30" rows="10" placeholder="Описание" name="post"></textarea>
         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
-        <input type="file" name="postfile">
+        <input type="file" name="file">
         <label>
             <input type="hidden" name="draft" value="0">
             <input id="check_draft" type="checkbox" name="draft" value="1" >Черновик
