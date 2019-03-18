@@ -57,6 +57,7 @@ require 'function-index.php';
       <div class="album py-5 bg-light">
       <?php if (count($result)) { ?>
         <?php foreach($result as $row) { ?>
+        <?php if ($row['deleted'] == 0) { ?>
         <?php $last_id = $row['id'];?>
         <?php $id = $row['autor_id'];?>
         <?php $status = $row['status']; ?>
@@ -90,7 +91,7 @@ require 'function-index.php';
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
-                      <a href="/edit.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                      <a href="/edit-form.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary">Изменить</a>
                       <a href="/delete.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary" onclick="confirm('are you sure?')">Удалить</a>
                     </div>
                   </div>
@@ -98,6 +99,7 @@ require 'function-index.php';
               </div>
             </div>
             <?php } ?>
+              <?php } ?>
               <?php } else { ?>
                 <?php  echo "Нет записей для вывода"; ?>
                   <?php } ?> 

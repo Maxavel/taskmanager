@@ -13,31 +13,4 @@ $data->execute(array('autor_id' => $autor_id));
 $result = $data->fetchAll();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

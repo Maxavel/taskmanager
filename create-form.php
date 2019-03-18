@@ -23,7 +23,7 @@
         <input type="text" id="inputTitle" class="form-control" placeholder="Название" required name="title">
         <label for="inputText" class="sr-only">Описание</label>
         <textarea name="post" class="form-control" cols="30" rows="10" placeholder="Описание" name="post"></textarea>
-        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
         <input type="file" name="file">
         <label>
             <input type="hidden" name="draft" value="0">

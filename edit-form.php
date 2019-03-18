@@ -1,4 +1,7 @@
-
+<?php 
+session_start();
+include 'edit.php';
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,19 +17,19 @@
       
     </style>
   </head>
-
   <body>
     <div class="form-wrapper text-center">
-      <form class="form-signin">
+      <form class="form-signin" enctype="multipart/form-data" action="edit.php?id=<?php echo $last_id ?>" method="post">
         <img class="mb-4" src="assets/img/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Добавить запись</h1>
         <label for="inputEmail" class="sr-only">Название</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Название" required value="Выполнить все задания и сдать работу преподавателю">
+        <input type="text" id="inputEmail" class="form-control" placeholder="Название" required name="title" value="<?php echo $title;?>">
         <label for="inputEmail" class="sr-only">Описание</label>
-        <textarea name="description" class="form-control" cols="30" rows="10" placeholder="Описание">Пройти первый а потом второй урок. Закрепить практикой и написать проект сначала без подглядываний.</textarea>
-        <input type="file">
-        <img src="assets/img/no-image.jpg" alt="" width="300" class="mb-3">
-        <button class="btn btn-lg btn-success btn-block" type="submit">Редактировать</button>
+        <textarea name="post" class="form-control" cols="30" rows="10" name="post" placeholder="Описание"><?php echo $post;?></textarea>
+        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+        <input type="file" name="file">
+        <img src="uploads/<?php echo $rst;?>" alt="" width="300" class="mb-3">
+        <button class="btn btn-lg btn-success btn-block" type="submit" name="knopka">Редактировать</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
       </form>
     </div>
