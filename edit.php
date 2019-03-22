@@ -33,55 +33,21 @@ if (count($result)) {
   }
  }
 
-if( isset( $_POST['knopka'] ) )
+if( isset( $_POST['submit'] ) )
     {
     	$id = $_GET['id'];
     	$title = $_POST['title'];
     	$post = $_POST['post'];
-    	$name1 = $name;
+      $last_id = $id;
 
-    	$sql = 'UPDATE posts_up SET title = :title, post = :post, name = :name WHERE id = :id';
+      $sql = 'UPDATE posts SET title = :title, post = :post WHERE id = :id';
     	$result = $pdo->prepare($sql);
-    	// $result->bindParam(':id', $id);
-    	// $result->bindParam(':title', $title);
-    	// $result->bindParam(':post', $post);
-    	// $result->bindParam(':name', $name);
-    	$result->execute(array(':id' => $id, ':title' => $title, ':post' => $post,':name' => $name));
+    	$result->execute(array(':id' => $id, ':title' => $title, ':post' => $post));
 
-
-
-    	var_dump($id);
-    	echo '<pre>';
-    	var_dump($title);
-    	var_dump($post);
-    	var_dump($name1);
-    	echo '</pre>';
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //   	// var_dump($_POST);
-  //   	$id = $_GET['id'];
-  //   	$title = $_POST['title'];
-		// $post = $_POST['post'];
+    	$sql = 'UPDATE images SET name = :name WHERE last_id = :id';
+    	$result = $pdo->prepare($sql);
+    	$result->execute(array(':id' => $id, ':name' => $name ));
     	
-  //       $sql = 'UPDATE POSTS SET title = :title, post = :post, WHERE id = :id';
-  //       $result = $pdo->prepare($sql);
-  //       $result->bindParam(':id', $id);
-  //       $result->bindParam(':title', $title);
-  //       $result->bindParam(':post', $post);
-  //       $result->execute();
     }
-
-
 
 ?>

@@ -35,6 +35,7 @@ $statement->bindParam(':status', $status);
 
 $statement->execute();
 $last_id = $pdo->lastInsertId();
+$_SESSION['last_id'] = $last_id;
 
 $sql = 'INSERT INTO images (name, last_id) values (:name, :last_id)';
 $statement = $pdo->prepare($sql);

@@ -29,7 +29,7 @@ include 'edit.php';
         <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
         <input type="file" name="file">
         <img src="uploads/<?php echo $rst;?>" alt="" width="300" class="mb-3">
-        <button class="btn btn-lg btn-success btn-block" type="submit" name="knopka">Редактировать</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit" name="submit">Редактировать</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
       </form>
     </div>
