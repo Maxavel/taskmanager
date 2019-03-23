@@ -1,19 +1,19 @@
 <?php
 session_start();
 
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-
 include 'bd.php';
 include 'images.php';
 $last_id = $_GET['id'];
+
+// Создание представления
 
 // $sql = 'CREATE VIEW POSTS_UP AS SELECT POSTS.id, POSTS.title, POSTS.post, POSTS.date_update, POSTS.draft, POSTS.status, IMAGES.name, IMAGES.last_id FROM POSTS INNER JOIN IMAGES ON POSTS.id = IMAGES.last_id';
 // $statement = $pdo->prepare($sql);
 // $statement->execute();
 
  $sql = 'SELECT * FROM POSTS_UP where id = :last_id';
+
+// join для связывания
 
 // $sql = 'SELECT POSTS.id, POSTS.title, POSTS.post, POSTS.date_update, POSTS.draft, POSTS.status, IMAGES.name, IMAGES.last_id FROM POSTS INNER JOIN IMAGES ON POSTS.id = IMAGES.last_id';
 
@@ -23,6 +23,7 @@ $last_id = $_GET['id'];
  $result = $statement->FETCHALL(PDO::FETCH_ASSOC);
 
 
+// Отправляем циклом на вывод
 if (count($result)) {
    foreach($result as $row) { 
    	if ($last_id == $row['id']) {
@@ -33,6 +34,8 @@ if (count($result)) {
   }
  }
 
+
+// Если нажата кнопка апдейта
 if( isset( $_POST['submit'] ) )
     {
     	$id = $_GET['id'];

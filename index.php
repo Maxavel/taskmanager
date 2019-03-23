@@ -92,7 +92,7 @@ require 'function-index.php';
                     <div class="btn-group">
                       <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                       <a href="/edit-form.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                      <a href="/delete.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary" onclick="confirm('are you sure?')">Удалить</a>
+                      <a href="/delete.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary" onclick="confirm('Вы уверены?')">Удалить</a>
                     </div>
                   </div>
                 </div>

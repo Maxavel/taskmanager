@@ -13,7 +13,7 @@ include 'bd.php';
    		));
 
    $count = $statement->rowCount();
-
+// Если только одно совпадение
 if($count == 1)
 {
 	$_SESSION['add_user'] = $userlogin;
@@ -26,5 +26,5 @@ if($count == 1)
 	include 'errors.php';
 	exit;
 }
-/*    */
+
 ?> 

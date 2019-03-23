@@ -37,17 +37,4 @@ if(!$result)
   header('Location: login-form.php');
 }
 
-/*
-// Валидация POST
- if($_SERVER["REQUEST_METHOD"]=="POST"){
-        if (!empty($_POST["username"]) && !empty($_POST["email"]) && !empty($_POST["password"])){
-             var_dump($_POST);
-        }
-        else {
-            // echo "Поля name, email или password не заполнены!";
-        }
-}
-// echo $test;
-var_dump($_POST)
-*/
 ?>
