@@ -17,7 +17,11 @@ $password   = $_POST['password'];
 
 $sql = 'SELECT id from user where (email=:email or userlogin=:userlogin) or (email=:email and userlogin=:userlogin)';
 $statement = $pdo->prepare($sql);
-$statement->execute(array(':email' => $email,':userlogin' => $userlogin));
+$statement->execute(array(
+	':email' 	 => $email,
+	':userlogin' => $userlogin
+));
+
 $result = $statement->fetchAll();
 if(!empty($result))
 {

@@ -11,7 +11,10 @@ $autor_id = $statement->fetchColumn();
 
 // Выбираем пост по айди
 $data = $pdo->prepare('SELECT * FROM posts WHERE autor_id = :autor_id');
-$data->execute(array('autor_id' => $autor_id));
+$data->execute(array(
+	'autor_id' => $autor_id
+));
+
 $result = $data->fetchAll();
 
 

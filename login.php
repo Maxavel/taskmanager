@@ -19,9 +19,9 @@ if($count == 1)
 	$_SESSION['add_user'] = $userlogin;
 	header('Location: index.php');
 	
- }
+}
  else 
- {
+{
 	$errorMessage = 'Логин или пароль неверные!';
 	include 'errors.php';
 	exit;

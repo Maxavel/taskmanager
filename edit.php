@@ -22,35 +22,38 @@ $last_id = $_GET['id'];
  $statement->execute();
  $result = $statement->FETCHALL(PDO::FETCH_ASSOC);
 
-
 // Отправляем циклом на вывод
 if (count($result)) {
    foreach($result as $row) { 
    	if ($last_id == $row['id']) {
    	$title = $row['title'];
-   	$post = $row['post'];
-   	$rst = $row['name'];
+   	$post  = $row['post'];
+   	$rst   = $row['name'];
    }
   }
  }
 
-
 // Если нажата кнопка апдейта
 if( isset( $_POST['submit'] ) )
     {
-    	$id = $_GET['id'];
-    	$title = $_POST['title'];
-    	$post = $_POST['post'];
+    	$id      = $_GET['id'];
+    	$title   = $_POST['title'];
+    	$post    = $_POST['post'];
       $last_id = $id;
 
       $sql = 'UPDATE posts SET title = :title, post = :post WHERE id = :id';
     	$result = $pdo->prepare($sql);
-    	$result->execute(array(':id' => $id, ':title' => $title, ':post' => $post));
+    	$result->execute(array(
+        ':id'    => $id, 
+        ':title' => $title, 
+        ':post'  => $post
+      ));
 
     	$sql = 'UPDATE images SET name = :name WHERE last_id = :id';
     	$result = $pdo->prepare($sql);
-    	$result->execute(array(':id' => $id, ':name' => $name ));
-    	
-    }
+    	$result->execute(array(
+        ':id'   => $id, 
+        ':name' => $name ));
 
+    }
 ?>
