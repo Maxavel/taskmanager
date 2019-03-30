@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['add_user'])) 
+{ 
+  header('Location: /login-form.php');
+  exit;
+}
+
 include 'bd.php';
 include 'images.php';
 $last_id = $_GET['id'];

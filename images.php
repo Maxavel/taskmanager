@@ -1,5 +1,4 @@
 <?php
-
 // если была произведена отправка формы
     if(isset($_FILES['file'])) {
       $check = can_upload($_FILES['file']);
@@ -29,7 +28,6 @@
     // если расширение не входит в список допустимых - return
     if(!in_array($mime, $types))
         return 'Недопустимый тип файла.';
-    
     return true;
   }
   

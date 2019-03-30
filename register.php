@@ -1,10 +1,10 @@
 <?php
 include 'bd.php';
 
-$username   = $_POST['username'];
-$email      = $_POST['email'];
-$userlogin  = $_POST['userlogin'];
-$password   = $_POST['password'];
+$username  = $_POST['username'];
+$email     = $_POST['email'];
+$userlogin = $_POST['userlogin'];
+$password  = $_POST['password'];
 
  foreach ($_POST as $input )
  {

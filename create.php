@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(!isset($_SESSION['add_user'])) 
+{ 
+	header('Location: /login-form.php');
+	exit;
+}
+
 include 'bd.php';
 include 'images.php';
 
@@ -30,19 +36,16 @@ $statement->bindParam(':post', $post);
 $statement->bindParam(':autor_id', $autor_id);
 $statement->bindParam(':draft', $draft);
 $statement->bindParam(':status', $status);
-
 $statement->execute();
+
 $last_id = $pdo->lastInsertId();
 $_SESSION['last_id'] = $last_id;
 
 // Вставляем картинку
 $sql = 'INSERT INTO images (name, last_id) values (:name, :last_id)';
 $statement = $pdo->prepare($sql);
-
 $statement->bindParam(':name', $name);
 $statement->bindParam(':last_id', $last_id);
-
 $statement->execute();
-
 
 ?>

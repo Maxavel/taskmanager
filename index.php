@@ -1,5 +1,12 @@
 <?php 
 session_start();
+
+if(!isset($_SESSION['add_user'])) 
+{ 
+  header('Location: /login-form.php');
+  exit;
+}
+
 require 'function-index.php';
 ?>
 <!doctype html>
@@ -90,7 +97,7 @@ require 'function-index.php';
                   </p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <a href="#" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+                      <a href="/show-form.php?id=<?php echo $last_id;?>" class="btn btn-sm btn-outline-secondary">Подробнее</a>
                       <a href="/edit-form.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary">Изменить</a>
                       <a href="/delete.php?id=<?php echo $last_id?>" class="btn btn-sm btn-outline-secondary" onclick="confirm('Вы уверены?')">Удалить</a>
                     </div>

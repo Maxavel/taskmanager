@@ -2,18 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-
     <title>Create Task</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-    
     <style>
-      
     </style>
   </head>
-
   <body>
     <div class="form-wrapper text-center">
       <form class="form-signin" enctype="multipart/form-data" action="create.php" method="post">

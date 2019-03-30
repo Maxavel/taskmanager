@@ -1,16 +1,12 @@
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Register</title>
-
     <!-- Bootstrap core CSS -->
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
     <style>
-
     </style>
   </head>
   <body>
