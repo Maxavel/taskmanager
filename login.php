@@ -1,13 +1,10 @@
 <?php
 session_start();
-include 'bd.php';
 
-foreach($_POST as $input) {
-    if(empty($input)) {
-        include 'errors.php';
-        exit;
-    }
-}
+include 'bd.php';
+include 'function.php';
+
+validate_input();
 
    $userlogin = $_POST['userlogin'];
    $password  = md5(md5($_POST['password']));

@@ -1,14 +1,10 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['add_user'])) 
-{ 
-	header('Location: /login-form.php');
-	exit;
-}
-
 include 'bd.php';
-include 'images.php';
+include 'function.php';
+
+validate_session();
 
 $title     = $_POST['title'];
 $post      = $_POST['post'];

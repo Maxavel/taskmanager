@@ -1,13 +1,9 @@
 <?php 
 session_start();
-
-if(!isset($_SESSION['add_user'])) 
-{ 
-  header('Location: /login-form.php');
-  exit;
-}
-
+include 'function.php';
+validate_session();
 require 'function-index.php';
+
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,19 +1,13 @@
 <?php
 include 'bd.php';
+include 'function.php';
 
 $username  = $_POST['username'];
 $email     = $_POST['email'];
 $userlogin = $_POST['userlogin'];
 $password  = $_POST['password'];
 
- foreach ($_POST as $input )
- {
-	if(empty($input))
-  {
-		include 'errors.php';
-		exit;
-	}
-}
+validate_input();
 
 $sql = 'SELECT id from user where (email=:email or userlogin=:userlogin) or (email=:email and userlogin=:userlogin)';
 $statement = $pdo->prepare($sql);
@@ -34,6 +28,7 @@ $sql = 'INSERT INTO user (username, email, userlogin, password) values (:usernam
 $statement = $pdo->prepare($sql);
 $_POST['password'] = md5(md5($_POST['password']));
 $result = $statement->execute($_POST);
+
 if(!$result)
 {
 	$errorMessage = 'Ошибка подключения';

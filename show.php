@@ -1,14 +1,11 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['add_user'])) 
-{ 
-  header('Location: /login-form.php');
-  exit;
-}
-
 include 'bd.php';
-include 'images.php';
+include 'function.php';
+
+validate_session();
+
 $last_id = $_GET['id'];
 
 $sql = 'SELECT * FROM POSTS_UP where id = :last_id';

@@ -1,11 +1,9 @@
 <?php 
 session_start();
 
-if(!isset($_SESSION['add_user'])) 
-{ 
-	header('Location: /login-form.php');
-	exit;
-}
+include 'function.php';
+
+validate_session();
 
 require 'bd.php';
 // Если принимаем Get, получаем id автора и меняем статус удаления
